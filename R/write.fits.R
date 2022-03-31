@@ -91,7 +91,7 @@ write.fits = function(x, file = "star.fits", type = "single", hdu = 0){
         if(!is.null(d)){
             
             # write primary data unit
-            writeBin64(as.vector(d), fcon, size = size, endian = .Platform$endian)
+            writeBin64(as.vector(d), fcon, size = size, endian = "big")
             
             # pad rest of record with zeros
             overflow = (length(as.vector(d)) * size) %% 2880
